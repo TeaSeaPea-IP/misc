@@ -7,7 +7,7 @@
 
 # Begin Script
 
-$parentFolder = (Get-Location).Path
+$parentFolder = $PSScriptRoot
 
 
 $parentFolderDir = Get-ChildItem -Path $parentFolder | Where-Object -Property Extension -CEQ ".PDF"
@@ -36,3 +36,4 @@ if($parentFolderDir){
     }
 }
 
+Read-Host "Press ENTER to close"
