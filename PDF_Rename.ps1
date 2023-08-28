@@ -20,11 +20,12 @@ if($parentFolderDir){
     # Loop through all items in this directory
     foreach($file in $parentFolderDir){
         # Create the new file name
-        $newName = $file -creplace ".PDF", ".pdf"
+        $newName = $file.Name -creplace ".PDF", ".pdf"
+        $fullName = $file.FullName
 
         # Try to rename the file
         try {
-            Rename-Item -Path $file.fullName -NewName $newName
+            Rename-Item -Path "$fullName" -NewName "$newName"
 
             # Output to console
             Write-Host UPDATED - $file.FullName -ForegroundColor Green
